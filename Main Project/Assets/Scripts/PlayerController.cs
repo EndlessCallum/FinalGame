@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 startPos;
     public Vector3 jump;
     public float jumpForce = 2.0f;
+    public bool isOnGround = true;
+
+    private AudioSource playerAudio;
+    public AudioClip jumpSound;
+    public AudioClip gameOverSound;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +27,7 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         startPos = transform.position;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,9 +39,11 @@ public class PlayerController : MonoBehaviour
             verticalInput = Input.GetAxis("Vertical");
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && gameManager.isGameActive == true)
         {
+            isOnGround = false;
             playerRB.AddForce(jump * jumpForce, ForceMode.Impulse);
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
 }
 
@@ -57,10 +65,16 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Game Over Plane"))
         {
             gameManager.GameOver();
+            playerAudio.PlayOneShot(gameOverSound, 1.0f);
         }
         else if (collision.gameObject.CompareTag("Finish"))
         {
             gameManager.GameFinished();
+        }
+        else if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+            // rolling ball sound
         }
     }
 }
