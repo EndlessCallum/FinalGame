@@ -1,0 +1,7 @@
+Mostly used knowledge from learning the Unity unit's.
+
+Map creation assets - https://assetstore.unity.com/packages/3d/prototyping-pack-free-94277
+Player (Ball) - https://assetstore.unity.com/packages/2d/textures-materials/billiard-balls-6353
+Game Over voice - https://assetstore.unity.com/packages/audio/sound-fx/voices/a-voice-over-for-game-over-132171
+
+No Tutuorials were followed nor any help from any of my college friends.
