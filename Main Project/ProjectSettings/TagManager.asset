@@ -7,6 +7,8 @@ TagManager:
   - Game Over Plane
   - Ground
   - Jump Platform
+  - Bullet
+  - JumpPowerUp
   layers:
   - Default
   - TransparentFX

@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI wellDoneText;
     public TextMeshProUGUI levelText;
 
+    public GameObject powerUp;
+
 
 
     // Start is called before the first frame update
@@ -70,6 +72,8 @@ public class GameManager : MonoBehaviour
 
 
         levelText.gameObject.SetActive(true);
+
+        Instantiate(powerUp, powerUp.transform.position, powerUp.transform.rotation);
     }
 
     public void RestartGame()
@@ -110,6 +114,11 @@ public class GameManager : MonoBehaviour
 
         levelText.gameObject.SetActive(false);
 
+    }
+
+    public void Level2()
+    {
+        SceneManager.LoadScene("Level 2");
     }
 
     public void ExitGame()

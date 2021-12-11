@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip gameOverSound;
 
+    public bool isAbleToJump = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,7 @@ public class PlayerController : MonoBehaviour
             verticalInput = Input.GetAxis("Vertical");
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && gameManager.isGameActive == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && gameManager.isGameActive == true && isAbleToJump == true)
         {
             isOnGround = false;
             playerRB.AddForce(jump * jumpForce, ForceMode.Impulse);
@@ -82,6 +84,10 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;
             jumpForce = 4.0f;
+        }
+        else if (collision.gameObject.CompareTag("JumpPowerUp"))
+        {
+            isAbleToJump = true;
         }
     }
 }
