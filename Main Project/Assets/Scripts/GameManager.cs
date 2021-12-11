@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public Button continueButton;
     public TextMeshProUGUI levelCompletedText;
     public TextMeshProUGUI wellDoneText;
+    public TextMeshProUGUI levelText;
 
 
 
@@ -66,6 +67,9 @@ public class GameManager : MonoBehaviour
         startButton.gameObject.SetActive(false);
         exitButton.gameObject.SetActive(false);
         titleText.gameObject.SetActive(false);
+
+
+        levelText.gameObject.SetActive(true);
     }
 
     public void RestartGame()
@@ -76,6 +80,9 @@ public class GameManager : MonoBehaviour
         restartButton.gameObject.SetActive(false);
         homeButton.gameObject.SetActive(false);
         restartText.gameObject.SetActive(false);
+
+
+        levelText.gameObject.SetActive(true);
     }
 
     public void GameOver()
@@ -86,6 +93,9 @@ public class GameManager : MonoBehaviour
         restartButton.gameObject.SetActive(true);
         homeButton.gameObject.SetActive(true);
         restartText.gameObject.SetActive(true);
+
+
+        levelText.gameObject.SetActive(false);
     }
 
     public void GameFinished()
@@ -97,6 +107,8 @@ public class GameManager : MonoBehaviour
         continueButton.gameObject.SetActive(true);
         levelCompletedText.gameObject.SetActive(true);
         wellDoneText.gameObject.SetActive(true);
+
+        levelText.gameObject.SetActive(false);
 
     }
 
