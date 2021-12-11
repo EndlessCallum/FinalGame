@@ -3763,12 +3763,11 @@ MonoBehaviour:
   restartButton: {fileID: 461130592}
   homeButton: {fileID: 339985273}
   restartText: {fileID: 1466855263}
-  continueButton: {fileID: 0}
   levelCompletedText: {fileID: 215206707}
   wellDoneText: {fileID: 798728622}
   levelText: {fileID: 1604687592}
   powerUp: {fileID: 6797386672757477824, guid: e364a9a0732a3eb4ba78774b225059d3, type: 3}
-  playerController: {fileID: 0}
+  playerController: {fileID: 1153845141}
 --- !u!4 &905568531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4760827787735690, guid: 88ccea9d275542b47a02cf9575d5864b, type: 3}
