@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Game Over Plane
   - Ground
+  - Jump Platform
   layers:
   - Default
   - TransparentFX

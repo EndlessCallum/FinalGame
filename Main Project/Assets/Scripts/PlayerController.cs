@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 startPos;
     public Vector3 jump;
     public float jumpForce = 2.0f;
+    public float jumpBoost = 10.0f;
     public bool isOnGround = true;
 
     private AudioSource playerAudio;
@@ -74,7 +75,13 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            jumpForce = 2.0f;
             // rolling ball sound
+        }
+        else if (collision.gameObject.CompareTag("Jump Platform"))
+        {
+            isOnGround = true;
+            jumpForce = 4.0f;
         }
     }
 }
