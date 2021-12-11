@@ -20,12 +20,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI restartText;
 
     // Game Finished variables
-    public Button continueButton;
     public TextMeshProUGUI levelCompletedText;
     public TextMeshProUGUI wellDoneText;
     public TextMeshProUGUI levelText;
 
     public GameObject powerUp;
+
+    public PlayerController playerController;
 
 
 
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = false;
         StartMenu();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -51,7 +53,6 @@ public class GameManager : MonoBehaviour
 
         // Disabiling all Game Objects from GameFinished()
         homeButton.gameObject.SetActive(false);
-        continueButton.gameObject.SetActive(false);
         levelCompletedText.gameObject.SetActive(false);
         wellDoneText.gameObject.SetActive(false);
 
@@ -87,11 +88,13 @@ public class GameManager : MonoBehaviour
 
 
         levelText.gameObject.SetActive(true);
+        Instantiate(powerUp, powerUp.transform.position, powerUp.transform.rotation);
     }
 
     public void GameOver()
     {
         isGameActive = false;
+        playerController.isAbleToJump = false;
 
         // Enabiling all Game Objects for this Menu
         restartButton.gameObject.SetActive(true);
@@ -105,20 +108,15 @@ public class GameManager : MonoBehaviour
     public void GameFinished()
     {
         isGameActive = false;
+        playerController.isAbleToJump = false;
 
         // Enabiling all Game Objects for this Menu
         homeButton.gameObject.SetActive(true);
-        continueButton.gameObject.SetActive(true);
         levelCompletedText.gameObject.SetActive(true);
         wellDoneText.gameObject.SetActive(true);
 
         levelText.gameObject.SetActive(false);
 
-    }
-
-    public void Level2()
-    {
-        SceneManager.LoadScene("Level 2");
     }
 
     public void ExitGame()
